@@ -9,7 +9,7 @@
         @csrf
         <div>
             <label for="username">Username</label>
-            <input type="text" name="username" id="username" value="{{ old('username') }}">
+            <input type="text" name="username" id="username">
             @error('username')
             <div class="alert">{{ $message }}</div>
             @enderror

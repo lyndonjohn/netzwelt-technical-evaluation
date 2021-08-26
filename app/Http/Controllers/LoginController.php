@@ -38,8 +38,8 @@ class LoginController extends Controller
             return back()->with('message', $response['message']);
         }
 
-        // Associate logged user to local User model to utilise Auth facade
-        $user = User::where('id', 1)->first();
+        // Associate logged in user to local User model through their username to utilise Auth facade
+        $user = User::where('username', $request->username)->first();
         Auth::login($user);
 
         return redirect()->route('home');

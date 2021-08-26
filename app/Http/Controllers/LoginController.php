@@ -39,7 +39,8 @@ class LoginController extends Controller
         }
 
         // Associate logged in user to local User model through their username to utilise Auth facade
-        $user = User::where('username', $request->username)->first();
+        $user = User::where('username', $request->username)->firstOrFail();
+
         Auth::login($user);
 
         return redirect()->route('home');
